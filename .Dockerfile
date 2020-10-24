@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest
+FROM tensorflow/tensorflow:latest-gpu
 
 LABEL maintainer="oge.blessing@gmail.com"
 
@@ -19,7 +19,7 @@ RUN pip install -r requirements.txt
 #install other dependencies
 RUN pip install --upgrade tf_slim
 RUN pip install lz4tools 
-#RUN pip install faiss-gpu
+RUN pip install faiss-gpu
 
 #Extract files --optionally remove run on start of container
 #RUN tar xvzf ./input/dataset.tar.gz -C ./input
