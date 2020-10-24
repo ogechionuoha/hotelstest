@@ -1,18 +1,18 @@
 #!/bin/bash
 
-cd /HOTELS-50K
-
 #extract dataset metadata
 tar xvzf ./input/dataset.tar.gz -C ./input
 
 #Extract test images
-lz4toolsCli -d ./images/test.tar.lz4
-tar xf ./images/test.tar -C ./images
+lz4toolsCli -d /HOTELS-50K/images/test.tar.lz4
+tar xvf ./images/test.tar -C ./images
 
 #Extract pretrianed model
 cd pretrained_model
-tar xzf hotels50k_snapshot.tar.gz
+tar xzvf hotels50k_snapshot.tar.gz
 
 cd ..
+
+python faster_download_train.py
 
 
