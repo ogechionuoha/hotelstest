@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  hotels50k:
+    build: .
+    volumes:
+        - "./inputs:/HOTELS-50K/inputs"
+        - "./images:/HOTELS-50K/images"
