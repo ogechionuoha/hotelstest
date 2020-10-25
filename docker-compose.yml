@@ -2,6 +2,7 @@ version: "3.8"
 services:
   hotels50k:
     build: .
+    tty: true
     volumes:
-        - "./inputs:/HOTELS-50K/inputs"
+        - "./input:/HOTELS-50K/input"
         - "./images:/HOTELS-50K/images"
