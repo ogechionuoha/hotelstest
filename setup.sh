@@ -51,3 +51,7 @@ else
 	# Dataset directory already exists
 	echo "Pretrained model directory found on volume"
 fi
+
+
+echo "SETUP COMPLETE!"
+exit 0
