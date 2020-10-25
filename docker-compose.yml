@@ -5,5 +5,7 @@ services:
     volumes:
         - "./input:/HOTELS-50K/input"
         - "./images:/HOTELS-50K/images"
+    tty: true
+    stdin_open: true
     entrypoint :  
         - /bin/bash
