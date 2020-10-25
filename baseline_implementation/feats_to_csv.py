@@ -18,7 +18,7 @@ def main():
 
     res = faiss.StandardGpuResources()
     flat_config = faiss.GpuIndexFlatConfig()
-    flat_config.device = 3 # specify which GPU to use
+    flat_config.device = 0 # specify which GPU to use
 
     gpu_index = faiss.GpuIndexFlatIP(res, train_feats.shape[1],flat_config)
     for feat in train_feats:

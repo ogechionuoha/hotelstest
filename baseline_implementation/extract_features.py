@@ -35,7 +35,7 @@ def main(pretrained_model):
     featLayer = 'resnet_v2_50/logits'
     feat = tf.squeeze(tf.nn.l2_normalize(layers[featLayer],3))
     c = tf.ConfigProto()
-    c.gpu_options.visible_device_list=str(3) # specify which gpu you want to run on
+    c.gpu_options.visible_device_list=str(0) # specify which gpu you want to run on
 
     sess = tf.Session(config=c)
     saver = tf.train.Saver()
