@@ -11,6 +11,7 @@ TESTIMAGE_URL="https://cs.slu.edu/~stylianou/images/hotels-50k/test.tar.lz4"
 PRETRAINED_URL="https://www2.seas.gwu.edu/~astylianou/hotels50k/hotels50k_snapshot.tar.gz"
 
 #Extract dataset meta data to input directory.
+echo "Extracting dataset metadats..."
 # Check if datasets directory exists
 if [ ! -d $DATASET_DIR ]; then
 	# wget -O $INPUT_VOL/dataset.tar.gz "$DATASETURL"
@@ -24,6 +25,7 @@ else
 fi
 
 #download test images to images folder to preserve structure.
+echo "Obtaining Test images..."
 # Check if test images exist
 if [ ! -d $TESTIMAGE_DIR ]; then
 	if [ ! -f $IMAGE_VOL/test.tar.lz4 ]; then
@@ -40,6 +42,7 @@ fi
 
 #Get pretrained model
 # Check if pretrained model exist
+echo "Obtaining Pretrained model..."
 if [ ! -d $PRETRAINED_DIR ]; then
 	if [ ! -f $PRETRAINED_VOL/hotels50k_snapshot.tar.gz ]; then
 		wget "$PRETRAINED_URL" -P $PRETRAINED_VOL --no-check-certificate
@@ -51,7 +54,6 @@ else
 	# Dataset directory already exists
 	echo "Pretrained model directory found on volume"
 fi
-
 
 echo "SETUP COMPLETE!"
 exit 0
