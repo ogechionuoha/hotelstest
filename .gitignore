@@ -6,3 +6,4 @@ images/*/*/*.jpg
 *.tar.lz4
 input/dataset
 images/test
+images/train

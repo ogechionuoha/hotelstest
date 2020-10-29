@@ -11,7 +11,8 @@ def load_h5(data_description,path):
 def main():
     dirname = os.path.dirname(__file__)
     output_dir = os.path.join(dirname, 'features')
-
+    print(dirname)
+    print(output_dir)
     train_ims = load_h5('train_ims',os.path.join(output_dir,'trainIms.h5'))
     train_classes = load_h5('train_classes',os.path.join(output_dir,'trainClasses.h5'))
     train_feats = load_h5('train_feats',os.path.join(output_dir,'trainFeats.h5'))
@@ -30,7 +31,7 @@ def main():
 
     occlusion_levels = ['unoccluded','low_occlusions','medium_occlusions','high_occlusions']
     for occlusion in occlusion_levels:
-        with open(os.path.join(csv_dir,occlusion+'.csv'),'wb') as csv_file:
+        with open(os.path.join(csv_dir,occlusion+'.csv'),'w') as csv_file:
             test_output_dir = os.path.join(output_dir,occlusion)
             test_ims = load_h5('test_ims',os.path.join(test_output_dir,'testIms.h5'))
             test_feats = load_h5('test_feats',os.path.join(test_output_dir,'testFeats.h5'))
