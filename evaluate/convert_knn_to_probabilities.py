@@ -12,7 +12,7 @@ def main(input_file,output_file):
     hotel_class_ids = np.unique(train_id_to_class.values())
 
     with open(input_file) as in_f:
-        with open(output_file,'wb') as out_f:
+        with open(output_file,'w') as out_f:
             csv_reader = csv.reader(in_f,delimiter=',')
             lnNum = 0
             for row in csv_reader:
