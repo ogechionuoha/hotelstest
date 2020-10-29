@@ -1,4 +1,5 @@
 from __future__ import print_function
+import os
 import csv
 import numpy as np
 import sys
