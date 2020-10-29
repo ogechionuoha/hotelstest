@@ -49,7 +49,7 @@ def main(csv_file):
     num_queries = len(result_dict.keys())
     top_k_instance = np.zeros((num_queries,100),dtype='int')
     for idx in range(num_queries):
-        query_image_id = result_dict.keys()[idx]
+        query_image_id = list(result_dict.keys())[idx]
         query_class = result_dict[query_image_id]['query_class']
         result_classes = result_dict[query_image_id]['result_classes']
         correct_results = np.where(result_classes==query_class)[0]
@@ -62,7 +62,7 @@ def main(csv_file):
     top_k_chain = np.zeros((num_queries,100),dtype='int')
     known_chain_inds = []
     for idx in range(num_queries):
-        query_image_id = result_dict.keys()[idx]
+        query_image_id = list(result_dict.keys())[idx]
         query_chain = result_dict[query_image_id]['query_chain']
         if query_chain > -1:
             known_chain_inds.append(idx)
