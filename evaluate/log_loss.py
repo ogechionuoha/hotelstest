@@ -14,7 +14,7 @@ def main(csv_file):
     dirname = os.path.dirname(__file__)
     test_id_to_class = id_to_class_parser(os.path.join(dirname,'..','input/dataset/test_set.csv'))
     train_id_to_class = id_to_class_parser(os.path.join(dirname,'..','input/dataset/train_set.csv'))
-    hotel_class_ids = np.unique(train_id_to_class.values())
+    hotel_class_ids = np.unique(list(train_id_to_class.values()))
 
     losses = np.array((0))
     with open(csv_file) as cf:
@@ -38,11 +38,20 @@ def main(csv_file):
             # set the values in result_probs for each class in the result file
             result_probs[result_class_inds] = np.array([float(r) for r in row[2::2]])
             # get the index for the correct hotel
-            query_class_ind = np.where(hotel_class_ids==query_class)[0][0]
+            try:
+                query_class_ind = np.where(hotel_class_ids==query_class)[0][0]
+            except Exception as e:
+                print(e)
+                lnNum += 1
+                continue
 
             # compute the log loss
-            ll = log_loss([query_class_ind],[result_probs],labels=np.arange(hotel_class_ids.shape[0]))
-            losses = np.vstack((losses,ll))
+            try:
+                ll = log_loss([query_class_ind],[result_probs],labels=np.arange(hotel_class_ids.shape[0]))
+                losses = np.vstack((losses,ll))
+            except Exception as e:
+                print(e)
+
             lnNum += 1
 
     print('Log loss for ' + csv_file)
