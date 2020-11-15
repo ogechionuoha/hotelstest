@@ -11,8 +11,6 @@ def load_h5(data_description,path):
 def main():
     dirname = os.path.dirname(__file__)
     output_dir = os.path.join(dirname, 'features')
-    print(dirname)
-    print(output_dir)
     train_ims = load_h5('train_ims',os.path.join(output_dir,'trainIms.h5'))
     train_classes = load_h5('train_classes',os.path.join(output_dir,'trainClasses.h5'))
     train_feats = load_h5('train_feats',os.path.join(output_dir,'trainFeats.h5'))

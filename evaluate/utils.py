@@ -1,6 +1,9 @@
 import csv
 
 def id_to_class_parser(dataset_file):
+    '''
+    Returns dictionary of imageid:hotelid
+    '''
     id_to_class = {}
     with open(dataset_file) as f:
         csv_reader = csv.reader(f,delimiter=',')
